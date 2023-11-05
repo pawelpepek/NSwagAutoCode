@@ -4,6 +4,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddOpenApiDocument(configure =>
+{
+    configure.Title = "NSwag Auto Code";
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -15,8 +20,14 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-app.UseRouting();
 
+app.UseSwaggerUi3(settings =>
+{
+    settings.Path = "/api";
+    settings.DocumentPath = "/api/specification.json";
+});
+
+app.UseRouting();
 
 app.MapControllerRoute(
     name: "default",
