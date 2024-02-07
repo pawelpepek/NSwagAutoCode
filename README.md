@@ -1,12 +1,6 @@
 # NSwagAutoCode
 
-NSwag configuration for client code genaration.
-
-## Branches
-### main
-for the Angular
-### react
-for the React
+NSwag configuration Angular client code generation.
 
 ## Instruction
 ### Setup
